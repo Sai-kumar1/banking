@@ -9,6 +9,7 @@
 #include"../global.h"
 // end User defined
 
+//definitions
 #define USER_DATA_PATH "./database/"
 #define USER_ID 1
 #define NAME 2
@@ -18,8 +19,11 @@
 
 using namespace std;
 
+//global variable username so that we will allocate value from here
+// and can be used in other modules
 string username;
 
+//function for login message after successful login of the user
 void login_msg(string username){
     cout<<"Welcome "<<username<<"!"<<endl;
 }
@@ -36,8 +40,8 @@ int login(){
         string data;
         for(int i=0;i<PASWD;i++){getline(user,data);}
        // cout<<data<<endl;
-       data.pop_back();//due to extra space at end
-        //cout<<data.length()<<','<<password<<endl;
+       //data.pop_back();//due to extra space at end
+       // cout<<data.length()<<','<<password<<endl;
         if(password==data){
             login_msg(username);
         }

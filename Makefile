@@ -7,6 +7,10 @@ OBJS = \
         main.o\
 	./login-module/login.o\
 	./get_info/getinfo.o\
+	./create-user/signup.o\
+
+EXEC = \
+        bank\
 
 
 $(TARGET) : $(OBJS)
@@ -15,5 +19,5 @@ $(TARGET) : $(OBJS)
 .o : 
 	$(CC) $(CFLAGS) -c $@.cpp -o $@.o
 
-clear :
-	rm *.o
+clear : $(OBJS) $(EXEC)
+	rm $?

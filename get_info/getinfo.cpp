@@ -12,13 +12,16 @@
 #define AC_TYPE 4
 #define AMNT 5
 
+//since evrey user us saved as a file we use file_streams to work with data
 void show_transac_info(){
     fstream user;
     string file = (string)DATA_PATH+username+"/all_trans.txt";
     user.open(file,ios::in);
     string transaction;
+    cout<<"-------------------"<<endl;
     cout<<"Transactions:"<<endl;
     cout<<"-------------------"<<endl;
+    cout<<"------------------------------------------------------------"<<endl;
     cout<<"T.Num\t"<<"From\t"<<"To\t"<<"Date And Time\t"<<"\tAmnt"<<endl;
    int tnum=0;
 
@@ -33,14 +36,15 @@ void show_transac_info(){
 }
 
 void showinfo(){
-    string file = (string)DATA_PATH+(string)username+"/info.txt";
+    string file = (string)DATA_PATH+(string)username+"/info.txt"; //path to the user_info of a particular user
     fstream user;
     user.open(file,ios::in);
     string data;
     int line_num=0;
     string head[]={"Id","Full Name","pwd","A/C type","Balance"};
-    //cout<<"Id\t"<<"Full Name\t"<<"A/C type\t"<<"Balance"<<endl;
+    cout<<"------------"<<endl;
     cout<<"Profile"<<endl;
+    cout<<"------------"<<endl;
     cout<<"--------------------------------------------"<<endl;
     while(getline(user,data)){
         line_num++;

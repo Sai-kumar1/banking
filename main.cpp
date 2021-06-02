@@ -6,6 +6,7 @@
 //user defined
 #include"./login-module/login.h"
 #include"./get_info/getinfo.h"
+#include"./create-user/signup.h"
 
 //
 using namespace std;
@@ -39,7 +40,7 @@ int main(int argc,char* argv[]){
         cout<<"2.sign-up"<<endl;
         cin>>number;
         if(stoi(number)==1){invalid=login();}
-        //elseif(number == 2){create_user();}
+        else if(stoi(number) == 2){create_user( );}
     }
 
     if(!invalid){
