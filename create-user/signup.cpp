@@ -7,6 +7,7 @@
 //user includes
 #include"signup.h"
 
+#define USER_DATA_PATH ".//database//"
 using namespace std;
 
 
@@ -15,7 +16,7 @@ class userinfo{
     string username;
     string password;
     string ac_type;
-    string amount="0";
+    string amount;
     /*
     userinfo(string user,string pswd,string ac_ty){
         username=username;
@@ -40,14 +41,15 @@ int create_user(){
         else{cout<<"password and confirm password are not same\n Re-enter your password";}
         }
         cout<<"account type:";cin>>user.ac_type;cout<<endl;
+        cout<<"add opening amount : ";cin>>user.amount;cout<<endl;
     //userinfo user = new userinfo()
     try{
-        string  direc = DATA_PATH+user.username;
+        string  direc = USER_DATA_PATH+user.username;
         char* directory = strcpy(new char[direc.length() + 1], direc.c_str());
         
-        if(mkdir(directory,0777)==-1){
-            fstream files;
-            files.open(direc+"/info.txt",ios::app);
+        if(mkdir(directory,0777)==0){
+            fstream files,file;
+            files.open(direc+"//info.txt",ios::out);
             files<<to_string(user.username.length()*7%200)<<endl;
             files<<user.username<<endl;
             files<<user.password<<endl;
@@ -55,8 +57,9 @@ int create_user(){
             files<<user.amount<<endl;
 
             files.close();
-            files.open(direc+"/all_trans.txt",ios::out);
-            files.close();
+            file.open(direc+"//all_trans.txt",ios::out);
+            file.close();
+            cout<<"account created successfully"<<endl;
             return 0;
         }
         else{
@@ -65,7 +68,7 @@ int create_user(){
         }
     }
     catch(char* s){
-        cout<<"unexpected error try later";
+        cout<<"unexpected error try later"<<endl;
         return 1;
     }
     return 1;
