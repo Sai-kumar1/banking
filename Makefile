@@ -8,6 +8,7 @@ OBJS = \
 	./login-module/login.o\
 	./get_info/getinfo.o\
 	./create-user/signup.o\
+	./banking/transaction.o\
 
 EXEC = \
         bank\
