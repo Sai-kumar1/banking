@@ -10,7 +10,7 @@
 // end User defined
 
 //definitions
-#define USER_DATA_PATH "./database/"
+#define USER_DATA_PATH ".//database//"
 #define USER_ID 1
 #define NAME 2
 #define PASWD 3
@@ -34,7 +34,7 @@ int login(){
     cout<<"username:";cin>>username;//cout<<endl;
     cout<<"password:";cin>>password;cout<<endl;
     try{
-        string file=USER_DATA_PATH+(string)username +"/info.txt";
+        string file=USER_DATA_PATH+(string)username +"//info.txt";
         fstream user;
         user.open(file,ios::in);
         string data;
