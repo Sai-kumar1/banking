@@ -7,13 +7,15 @@
 #include"./login-module/login.h"
 #include"./get_info/getinfo.h"
 #include"./create-user/signup.h"
+#include"./banking/transaction.h"
 
 //
 using namespace std;
 
 void showOptions(){
     cout<<"1.Profile"<<endl;
-    cout<<"2.Transactions"<<endl;
+    cout<<"2.show Transactions"<<endl;
+    cout<<"3.start Transaction"<<endl;
 }
 
 void call_option(int option){
@@ -24,6 +26,9 @@ void call_option(int option){
         break;
     case 2:
         show_transac_info();
+        break;
+    case 3:
+        transaction();
         break;
     default:
         break;
@@ -48,7 +53,7 @@ int main(int argc,char* argv[]){
         int num;
         while(1){
             showOptions();
-            cout<<"enter the option or type 'exit' to exit from program:"<<endl;
+            cout<<"enter the option or type 'exit' to exit from program:\n>";
             cin>>line;
             if(line=="exit" || line=="EXIT"){ break; }
             num=stoi(line);
